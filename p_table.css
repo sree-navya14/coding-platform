@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url('bg2.jpg');
+    background-size: cover;
+    height: 109vh;
+}
+
+.navbar {
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+    color: #fff;
+}
+
+.icon {
+    width: 170px; /* Adjust this width to match your logo image */
+    float: left;
+    height: 50px;
+    color: #fff;
+    padding-left: -20px; /* Adjust padding as needed */
+}
+
+.logo {
+    display: none; /* Hide the text logo */
+}
+
+.logo-img {
+    display: block;
+    max-width: 80%; /* Ensure the image doesn't exceed the container width */
+    height: auto;
+    padding-top: 20px;
+}
+
+
+.menu {
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+ul {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+    color: #89CFF0;
+}
+
+.search {
+    width: 330px;
+    float: left;
+    margin-left: 250px;
+}
+
+.srch {
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #fff;
+    margin-top: 13px;
+    color: #fff;
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.btn {
+    width: 100px;
+    height: 40px;
+    background: #fff;
+    border: 2px solid #fff;
+    margin-top: 13px;
+    color: #000;
+    font-size: 15px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.srch:focus {
+    outline: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    width: 1200px;
+    margin: auto;
+    color: #fff;
+    text-align: center;
+}
+
+.content h1 {
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.problems {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 50px;
+    color: #fff;
+}
+
+.problems th,
+.problems td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.problems th {
+    background-color: #f2f2f2;
+    color: #000;
+}
+
+.problems td {
+    color: #fff;
+}
+
+.verdict {
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.verdict.green {
+    background-color: green;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-left: 20px;
+}
+
+.line {
+    width: calc(100% - 40px);
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto 20px;
+}
+
+
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 5px;
+    height: 100px;
+    gap: 30px;
+}
+
+.icon a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.icon ion-icon {
+    font-size: 40px;
+    transition: 0.3s ease;
+}
+
+.icon ion-icon:hover {
+    color: #89CFF0;
+}
+
+
+/* Add this CSS for the footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-left: 20px;
+}
+
+.line {
+    width: calc(100% - 40px); /* Adjust according to your needs */
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+    margin: 0 auto 20px; /* Center the line and add margin to separate from content */
+}
+
+.icon {
+    margin-top: -20px; /* Adjust to align the logo with the line */
+}
+
+
+
+
+

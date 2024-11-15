@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/c/c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/cpp/cpp.min.js"></script>
+  <style>
+    .select-wrapper, .button-wrapper {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="select-wrapper">
+    <label for="mode">Select Language:</label>
+    <select id="mode" onchange="changeMode()">
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="c">C</option>
+      <option value="cpp">C++</option>
+    </select>
+  </div>
+  <div class="button-wrapper">
+    <button onclick="runCode()">Run</button>
+  </div>
+  <textarea id="code" rows="10" cols="50">
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+  </textarea>
+
+  <script>
+    var editor;
+    
+    function changeMode() {
+      var mode = document.getElementById("mode").value;
+      editor.setOption("mode", mode);
+    }
+
+    function runCode() {
+      var code = editor.getValue();
+      var language = document.getElementById("mode").value;
+      
+      if (language === "javascript") {
+        try {
+          eval(code);
+        } catch (error) {
+          console.error(error);
+        }
+      } else if (language === "python") {
+        try {
+          var output = Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, code, true);
+          });
+          output.then(function(mod) {
+            console.log("Program finished");
+          },
+          function(err) {
+            console.log(err.toString());
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      } else if (language === "c" || language === "cpp") {
+        alert("C/C++ execution not supported in the browser. Please run it on your local environment.");
+      } else {
+        alert("Language not supported for direct execution.");
+      }
+    }
+
+    editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+      lineNumbers: true,
+      mode: "c"
+    });
+  </script>
+</body>
+</html>
+
+

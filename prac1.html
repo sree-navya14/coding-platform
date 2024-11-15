@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PRACTICE</title>
+    <link rel="stylesheet" href="style_practice.css">
+    <style type="text/css" media="screen">
+        #editor { 
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <img src="logo.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PRACTICE</a></li>
+                    <li><a href="#">LOGIN</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type to text">
+                <a href="#"><button class="btn">Search</button></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="question">
+                <h2>Coding Question</h2>
+                <p class="question-text"><h2>EXTREME BASKETBALL</h2>
+                  <br>
+                  Alice and Bob are playing a game of basketball against each other, one-versus-one.
+                  Currently, Alice has 
+                  
+                  A points, and Bob has 
+                  
+                  B points.
+                  
+                  Each shot of a player can score either 
+                  2
+                  2 or 
+                  3
+                  3 points.
+                  
+                  Alice isn't just out to win - she wants to win in dominant fashion.
+                  Alice believes that her win is dominant if she ends the game with at least 
+                  10
+                  10 points more than Bob.
+                  
+                  If Alice is able to prevent Bob from scoring any more points, what's the minimum number of shots she further needs to get a dominant victory?
+                
+                  
+            </p>
+            <p>
+              <div class="container">
+                <div class="box">
+                  <div class="title">Sample Input:</div>
+                  <p>3<br>
+                    11 2<br>
+                    100 23<br>
+                    3 5<br></p>
+                </div>
+                <div class="box">
+                  <div class="title">Sample Output:</div>
+                  <p>1<br>
+                    0<br>
+                    4<br>
+                  </p>
+                </div>
+              </div>
+            </p>
+            </div>
+            <div class="editor">
+                <h2>Write Your Code</h2>
+                <textarea class="code-textarea" placeholder="Write your code here..."></textarea>
+                <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/javascript");
+</script>
+                <div class="actions">
+                    <button class="submit-btn">Submit Code</button>
+                    <button class="run-btn">Run Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    
+    <footer>
+        <div class="line"></div> <!-- Line above the logo -->
+        <div class="footer-content">
+            <div class="icon">
+                <img src="logo.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="contact-info">
+                <p>Contact Us:</p>
+                <p>Mobile: +91 9351858213</p>
+                <p>Email: iit2023052@iiita.ac.in</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

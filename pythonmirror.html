@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/python/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/2.0.2/skulpt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/2.0.2/skulpt-stdlib.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/c/c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/cpp/cpp.min.js"></script>
+  <style>
+    .select-wrapper, .button-wrapper, .output-wrapper, .input-wrapper {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="select-wrapper">
+    <label for="mode">Select Language:</label>
+    <select id="mode" onchange="changeMode()">
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="c">C</option>
+      <option value="cpp">C++</option>
+    </select>
+  </div>
+  <div class="button-wrapper">
+    <button onclick="runCode()">Run</button>
+  </div>
+  <div class="output-wrapper">
+    <label for="output">Output:</label>
+    <textarea id="output" rows="5" cols="50" readonly></textarea>
+  </div>
+  <div class="input-wrapper">
+    <label for="input">Input:</label>
+    <textarea id="input" rows="3" cols="50"></textarea>
+  </div>
+  <textarea id="code" rows="10" cols="50">
+print("Hello, World!")
+  </textarea>
+
+  <script>
+    var editor;
+    
+    function changeMode() {
+      var mode = document.getElementById("mode").value;
+      editor.setOption("mode", mode);
+    }
+
+    function runCode() {
+      var code = editor.getValue();
+      var language = document.getElementById("mode").value;
+      var input = document.getElementById("input").value;
+      var outputTextarea = document.getElementById("output");
+      
+      if (language === "javascript") {
+        try {
+          var result = eval(code);
+          outputTextarea.value = result;
+        } catch (error) {
+          outputTextarea.value = error;
+        }
+      } else if (language === "python") {
+        Sk.configure({output: function(text) { outputTextarea.value += text + "\n"; }, read: function() { return input; }});
+        try {
+          var output = Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, code, true);
+          });
+          output.then(function(mod) {
+            console.log("Program finished");
+          },
+          function(err) {
+            console.log(err.toString());
+          });
+        } catch (error) {
+          outputTextarea.value = error;
+        }
+      } else if (language === "c" || language === "cpp") {
+        alert("C/C++ execution not supported in the browser. Please run it on your local environment.");
+      } else {
+        alert("Language not supported for direct execution.");
+      }
+    }
+
+    editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+      lineNumbers: true,
+      mode: "python"
+    });
+  </script>
+</body>
+</html>
